@@ -3,13 +3,16 @@ function App() {
     return (
         <div> 
             <h1>Hello</h1>
-            <Potato />
+            <Food fav="kimchi" />
+            <Food fav="Ramen" />
+            <Food fav="SamGyupSal" />
+            <Food fav="ChuKkuMi" />
         </div>
         );
 }
 
-function Potato() {
-    return <h1> I Like Potato</h1>;
+function Food({fav}) {
+    return <h1> I Like { fav } </h1>;
 }
 
 export default App;
