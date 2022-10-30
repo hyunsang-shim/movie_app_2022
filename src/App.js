@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Movie from './movie';
 
 // React.Component 클래스를 상속받는다.
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
 			data: {
 				data: {movies},
 			},
-		} = await  axios.get('https://yts-proxy.now.sh/list_movies.json');
+		} = await  axios.get('https://yts-proxy.now.sh/list_movies.json?sort_by=rating');
 		// this.setState({movies});		// ES6 에서는 객체 키와 대입할 변수의 이름이 같다면 코드를 축약할 수 있다.
 										// setState({movies: movies});가 setState({movies}); 가 되는 것.
 		this.setState({movies, isLoading: false});
@@ -28,9 +29,25 @@ class App extends React.Component {
 
 
 	render() {
-		const { isLoading } = this.state;
+		const { isLoading, movies } = this.state;
 		return (
-			<div>{isLoading ? 'Loading...' : 'We are ready'}</div>
+			<div>
+				{ isLoading 
+					? 'Loading...' 
+					: movies.map( (movie) => { 
+						console.log(movie);
+						return <Movie 
+						key={movie.id}
+						id= {movie.id}
+						year= {movie.year}
+						title= {movie.title}
+						summary={movie.summary}
+						poster={movie.medium_cover_image}
+						/>;
+						}
+					)
+				}
+			</div>
 		);
 	}
 }
