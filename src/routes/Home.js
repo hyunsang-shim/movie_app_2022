@@ -51,7 +51,7 @@ class Home extends React.Component {
 									genres={movie.genres} />
 								)
 							)
-						};
+						}
 					</ div>
 					)
 				}
