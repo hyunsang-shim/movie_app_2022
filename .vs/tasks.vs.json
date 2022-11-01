@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-movie_app_2022",
+      "appliesTo": "/",
+      "type": "launch"
+    }
+  ]
+}
