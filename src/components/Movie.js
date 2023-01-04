@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import './Movie.css';
 
 
-
 function Movie({title, year, summary, poster, genres }) {
-
 
 // react-route-dom 버전이 v.6으로 올라가면서
 // props을 전달할 수 없게 변했다.
@@ -15,7 +13,7 @@ function Movie({title, year, summary, poster, genres }) {
 	return (
 		<div className="movie">
 		<Link to='/movie-detail'
-			state={ { title:{title}, year:{year} } }>
+			state={ {fromNavigation:'true',  title, year } }>
 			<img src={poster} alt={title} title={title} />
 			<div className="movie__data">
 				<h3 className="movie__title">{title}</h3>

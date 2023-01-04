@@ -1,15 +1,25 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 
-
-
-function Detail( ) {
-
+function Detail(){
 	const location = useLocation();
-	console.log("state", location.state);
-	console.log("title", location.state.title);
-	console.log("year", location.state.year);
+	const navigation = useNavigate();
+
+	console.log("location: ", location);
+	console.log("location.state: ", location.state);
+	
+
+	useEffect(() => {
+		if (location.state === null)
+	})
+		if( location.state === null || location.state === undefined ) {
+			console.log("Redirecting to home");	
+			navigation('/');
+
+			}
+	
+	
 
 	return <span>Hello</span>;
 }
